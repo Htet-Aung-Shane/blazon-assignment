@@ -1,1 +1,1 @@
-from . import res_partner_ext
+from . import res_partner_ext,pos_slip_customization

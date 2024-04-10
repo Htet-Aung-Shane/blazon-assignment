@@ -16,8 +16,11 @@
         <field name="inherit_id" ref="base.view_partner_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='country_id']" position="after">
-                <field name="dob" widget="date" class="dob-red"/>
+                <field name="current_date" column_invisible="1"/>
+                <field name="dob" widget="date" class="dob-red" decoration-info="dob != current_date" decoration-danger="dob == current_date"/>
             </xpath>
         </field>
     </record>    
 </odoo>
+
+                    

@@ -1,23 +1,25 @@
 {
-    'name': 'POS Customization',
-    'description': 'POS Customization Module Developed By Htet Aung Shane',
+    "name": "POS Customization",
+    "description": "POS Customization Module Developed By Htet Aung Shane",
     "depends": [
         "base",
         "contacts",
+        "point_of_sale",
         "mail",
     ],
-    'category': 'Customizations',
-    'author': 'Htet Aung Shane',
+    "category": "Customizations",
+    "author": "Htet Aung Shane",
     "license": "OPL-1",
-    'installable': True,
-    'auto_install': False,
-    'application': True,
+    "installable": True,
+    "auto_install": False,
+    "application": True,
     "data": [
-        'views/res_partner_ext.xml',
+        "views/res_partner_ext.xml",
+        "views/res_config_ext.xml",
     ],
-    'assets':{
-        'web.assets_backend': [
-            "/pos_customization/static/src/scss/custom.scss",
-        ]
-    }
+    'assets': {
+   'point_of_sale._assets_pos': [
+       'pos_customization/static/src/**/*',
+   ],
+},
 }
