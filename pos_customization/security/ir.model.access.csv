@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_blazon_pos_image,name_blazon_pos_image,model_blazon_pos_image,,1,1,1,1
