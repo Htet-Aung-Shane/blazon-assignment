@@ -7,14 +7,18 @@ class InheritPOSConfiguration(models.TransientModel):
     def set_values(self):
         super(InheritPOSConfiguration, self).set_values()
         # Update the slip logo image in the settings
-        self.env['ir.config_parameter'].set_param('pos_customization.slip_logo', self.slip_logo)
+        logo_record = self.env['blazon.pos.image'].search([], limit=1)
+        if not logo_record:
+            logo_record = self.env['blazon.pos.image'].create({'slip_logo': self.slip_logo})
+        else:
+            logo_record.write({'slip_logo': self.slip_logo})
 
     @api.model
     def get_values(self):
         res = super(InheritPOSConfiguration, self).get_values()
         # Retrieve the slip logo image from the settings
-        slip_logo = self.env['ir.config_parameter'].sudo().get_param('pos_customization.slip_logo')
-        res.update(slip_logo=slip_logo)
+        logo_record = self.env['blazon.pos.image'].search([], limit=1)
+        res.update(slip_logo=logo_record.slip_logo if logo_record else False)
         return res
 
 class POSImage(models.Model):

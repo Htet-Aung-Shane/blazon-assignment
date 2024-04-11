@@ -3,7 +3,7 @@
    <t t-name="custom_pos_receipt.OrderReceipt"
       t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
         <xpath expr="//img" position="replace">
-            <img t-attf-src="/web/image/ir.config_parameter/{{'pos_customization.slip_logo'}}" alt="Logo" class="pos-receipt-logo"/>
+            <img t-attf-src="/web/image?model=blazon.pos.image&amp;id=1&amp;field=slip_logo" alt="Logo" class="pos-receipt-logo"/>
        </xpath>
    </t>
 </templates>
