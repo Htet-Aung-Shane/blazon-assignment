@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+   <t t-name="custom_pos_partner_list.PartnerListScreen"
+      t-inherit="point_of_sale.PartnerListScreen" t-inherit-mode="extension">
+        <xpath expr="//th[3]" position="after">
+            <th class="py-2">DOB</th>
+       </xpath>
+       <xpath expr="//tbody" position="replace">
+         <tbody class="partner-list-contents">
+            <t t-foreach="partners" t-as="partner"
+                t-key="partner.id">
+                <PartnerLine partner="partner"
+                            selectedPartner="state.selectedPartner"
+                            detailIsShown="state.detailIsShown"
+                            isBalanceDisplayed="isBalanceDisplayed"
+                            onClickEdit.bind="editPartner"
+                            onClickPartner.bind="clickPartner"/>
+            </t>
+        </tbody>
+    </xpath>
+    
+   </t>
+</templates>

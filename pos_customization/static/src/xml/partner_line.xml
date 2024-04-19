@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+   <t t-name="custom_pos_partner_line.PartnerLine"
+      t-inherit="point_of_sale.PartnerLine" t-inherit-mode="extension">
+        <xpath expr="//td[3]" position="after">
+            <td>
+                <div t-attf-class="partner-line {{dobClass}}" t-att-data-id="props.partner.id" t-if="props.partner.dob">
+                    <t t-esc="props.partner.dob" />
+                </div>
+                <div class="no-dob" t-if="!props.partner.dob">
+                    <t>dob not set yet</t>
+                </div>
+            </td>
+       </xpath>      
+    
+   </t>
+</templates>

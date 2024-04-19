@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+   <t t-name="custom_pos_partner_edit.PartnerDetailsEdit"
+      t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension">
+        <xpath expr="//div/div[2]/div[5]" position="after">
+            <div class="partner-detail col">                                                           
+                <label class="form-label label" for="dob">DOB</label>
+                <input type="date" class="detail dob form-control"
+                       id="dob" name="dob"
+                       t-model="changes.dob"
+                       t-esc="props.partner.dob"
+                       value="2017-06-01"
+                       t-att-class="{'border-danger': missingFields.includes('dob')}" />
+            </div>
+       </xpath>
+   </t>
+</templates>
