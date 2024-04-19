@@ -15,7 +15,6 @@ export class PartnerLine extends Component {
         console.log('reach>>')
         dob = this.props.partner.dob
         const currentDate = new Date().toISOString().split('T')[0]; // Get current date in 'YYYY-MM-DD' format
-        // return dob === currentDate ? 'dob-red' : 'dob-blue';
-        return 'custom-partner'
+        return dob === currentDate ? 'dob-red' : 'dob-blue';
     }
 }
