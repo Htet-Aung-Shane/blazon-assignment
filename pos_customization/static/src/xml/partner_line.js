@@ -1,20 +1,19 @@
 /** @odoo-module */
 
-import { Component } from "@odoo/owl";
+import { usePos } from "@point_of_sale/app/store/pos_hook";
+import { PartnerLine } from "@point_of_sale/app/screens/partner_list/partner_line/partner_line";
+import { patch } from "@web/core/utils/patch";
 
-export class PartnerLine extends Component {
-    static template = "point_of_sale.PartnerLine";
-
-    get highlight() {
-        return this._isPartnerSelected ? "highlight active" : "";
-    }
-    get _isPartnerSelected() {
-        return this.props.partner === this.props.selectedPartner;
-    }
+patch(PartnerLine.prototype, {
+    setup() {
+        super.setup(...arguments);
+        this.pos = usePos();
+    },
+ 
     get dobClass() {
         console.log('reach>>')
-        dob = this.props.partner.dob
+        var dob = this.props.partner.dob
         const currentDate = new Date().toISOString().split('T')[0]; // Get current date in 'YYYY-MM-DD' format
         return dob === currentDate ? 'dob-red' : 'dob-blue';
     }
-}
+});
