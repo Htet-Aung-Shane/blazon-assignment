@@ -8,8 +8,7 @@
                 <input type="date" class="detail dob form-control"
                        id="dob" name="dob"
                        t-model="changes.dob"
-                       t-esc="props.partner.dob"
-                       value="2017-06-01"
+                       t-att-value="props.partner.dob"
                        t-att-class="{'border-danger': missingFields.includes('dob')}" />
             </div>
        </xpath>
